@@ -253,7 +253,24 @@ const printKeySymbol = (element) => {
   }
 };
 
-const doKeyAction = (element) => { console.log(element); };
+const doKeyAction = (element) => {
+  const textarea = document.querySelector('.output__field');
+  if (element.classList.contains('backspace')) {
+    textarea.value = textarea.value.slice(0, -1);
+  }
+  if (element.classList.contains('space')) {
+    textarea.value = `${textarea.value} `;
+  }
+  if (element.classList.contains('enter')) {
+    textarea.value = `${textarea.value}\n`;
+  }
+  if (element.classList.contains('tab')) {
+    textarea.value = `${textarea.value}    `;
+  }
+  if (element.classList.contains('capslock')) {
+    console.log(element);
+  }
+};
 
 const addKeyboardKeysClickHandler = () => {
   document.querySelector('.keyboard__keys').addEventListener('click', (event) => {
