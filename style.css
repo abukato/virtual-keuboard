@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #dbedf3;
+}
+
+body {
+  background-color: #283149;
+}
+
+.title {
+  padding: 36px 0;
+  font-size: 48px;
+  text-align: center;
+}
+
+main {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.output__field {
+  width: 940px;
+  height: 280px;
+  padding: 10px;
+  resize: none;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #00818a;
+}
+
+.keyboard {
+  padding: 20px;
+}
+
+.keyboard__keys {
+  width: 940px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.key {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #404b69;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.backspace {
+  width: 94px;
+  font-size: 16px;
+}
+
+.tab,
+.controlleft,
+.controlright {
+  width: 84px;
+  font-size: 16px;
+}
+
+.capslock,
+.enter {
+  width: 104px;
+  font-size: 16px;
+}
+
+.shiftleft {
+  width: 148px;
+  font-size: 16px;
+}
+
+.altleft,
+.altright,
+.metaleft {
+  font-size: 16px;
+}
+
+.space {
+  width: 340px;
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.key:active {
+  background-color: #00818a;
+  transform: translateY(3px);
+}
+
+.key__press {
+  background-color: #00818a;
+  transform: translateY(3px);
+}
