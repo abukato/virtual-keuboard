@@ -243,7 +243,7 @@ const createKeyboard = () => {
   }
 };
 
-const isCapsLock = false;
+let isCapsLock = false;
 
 const printKeySymbol = (element) => {
   if (isCapsLock === false) {
@@ -268,7 +268,13 @@ const doKeyAction = (element) => {
     textarea.value = `${textarea.value}    `;
   }
   if (element.classList.contains('capslock')) {
-    console.log(element);
+    if (!isCapsLock) {
+      isCapsLock = true;
+      element.classList.add('capslock__active');
+    } else {
+      isCapsLock = false;
+      element.classList.remove('capslock__active');
+    }
   }
 };
 
