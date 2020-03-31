@@ -184,13 +184,13 @@ const keys = [
       code: 'AltLeft', eng: 'Alt', ru: 'Alt', printable: false,
     },
     {
-      code: 'Space', eng: ' ', ru: ' ', printable: true,
+      code: 'Space', eng: ' ', ru: ' ', printable: false,
     },
     {
       code: 'AltRight', eng: 'Alt', ru: 'Alt', printable: false,
     },
     {
-      code: 'ControlRight', eng: 'Ctrl', ru: 'Ctrl', printable: true,
+      code: 'ControlRight', eng: 'Ctrl', ru: 'Ctrl', printable: false,
     },
     {
       code: 'ArrowLeft', eng: '←', ru: '←', printable: true,
@@ -243,8 +243,34 @@ const createKeyboard = () => {
   }
 };
 
+const isCapsLock = false;
+
+const printKeySymbol = (element) => {
+  if (isCapsLock === false) {
+    document.querySelector('.output__field').value += element.innerText.toLowerCase();
+  } else {
+    document.querySelector('.output__field').value += element.innerText.toUpperCase();
+  }
+};
+
+const doKeyAction = (element) => { console.log(element); };
+
+const addKeyboardKeysClickHandler = () => {
+  document.querySelector('.keyboard__keys').addEventListener('click', (event) => {
+    if (event.target.classList.contains('key')) {
+      if (event.target.dataset.printable === 'true') {
+        printKeySymbol(event.target);
+      } else {
+        doKeyAction(event.target);
+      }
+    }
+  });
+};
+
 window.onload = () => {
   createBaseMarkup();
 
   createKeyboard();
+
+  addKeyboardKeysClickHandler();
 };
