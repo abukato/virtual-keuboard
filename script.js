@@ -223,7 +223,7 @@ const createBaseMarkup = () => {
   document.querySelector('body').innerHTML = baseMarkup;
 };
 
-const lang = 'eng';
+const lang = 'ru';
 
 const createKeyboard = () => {
   for (let i = 0; i < keys.length; i += 1) {
@@ -290,10 +290,55 @@ const addKeyboardKeysClickHandler = () => {
   });
 };
 
+const addOnKeyPressHandler = () => {
+  document.querySelector('body').addEventListener('keydown', (event) => {
+    const keyPressed = event.code.toLowerCase();
+    if (
+      event.keyCode === 8
+      || event.keyCode === 32
+      || event.keyCode === 13
+      || event.keyCode === 9
+      || event.keyCode === 20
+      || event.keyCode === 16
+      || event.keyCode === 17
+      || event.keyCode === 18
+      || event.keyCode === 91
+    ) {
+      event.preventDefault();
+      document.querySelector(`.${keyPressed}`).classList.add('key__press');
+      const letter = document.querySelector(`.${keyPressed}`);
+      doKeyAction(letter);
+    }
+
+    if (
+      (event.keyCode >= 65 && event.keyCode <= 90)
+      || (event.keyCode >= 37 && event.keyCode <= 40)
+      || (event.keyCode >= 48 && event.keyCode <= 57)
+      || event.keyCode === 192
+      || (event.keyCode >= 219 && event.keyCode <= 221)
+      || event.keyCode === 186
+      || event.keyCode === 222
+      || (event.keyCode >= 187 && event.keyCode <= 191)
+    ) {
+      document.querySelector(`.${keyPressed}`).classList.add('key__press');
+      const letter = document.querySelector(`.${keyPressed}`);
+      printKeySymbol(letter);
+    }
+  });
+
+  document.querySelector('body').addEventListener('keyup', (event) => {
+    event.preventDefault();
+    const keyPressed = event.code.toLowerCase();
+    document.querySelector(`.${keyPressed}`).classList.remove('key__press');
+  });
+};
+
 window.onload = () => {
   createBaseMarkup();
 
   createKeyboard();
 
   addKeyboardKeysClickHandler();
+
+  addOnKeyPressHandler();
 };
