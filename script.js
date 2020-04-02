@@ -1,205 +1,205 @@
 const keys = [
   [
     {
-      code: 'Backquote', eng: '`', ru: 'ё', printable: true,
+      code: 'Backquote', eng: ['`', '~'], ru: ['ё', 'Ё'], printable: true,
     },
     {
-      code: 'Digit1', eng: '1', ru: '1', printable: true,
+      code: 'Digit1', eng: ['1', '!'], ru: ['1', '!'], printable: true,
     },
     {
-      code: 'Digit2', eng: '2', ru: '2', printable: true,
+      code: 'Digit2', eng: ['2', '@'], ru: ['2', '"'], printable: true,
     },
     {
-      code: 'Digit3', eng: '3', ru: '3', printable: true,
+      code: 'Digit3', eng: ['3', '#'], ru: ['3', '№'], printable: true,
     },
     {
-      code: 'Digit4', eng: '4', ru: '4', printable: true,
+      code: 'Digit4', eng: ['4', '$'], ru: ['4', ';'], printable: true,
     },
     {
-      code: 'Digit5', eng: '5', ru: '5', printable: true,
+      code: 'Digit5', eng: ['5', '%'], ru: ['5', '%'], printable: true,
     },
     {
-      code: 'Digit6', eng: '6', ru: '6', printable: true,
+      code: 'Digit6', eng: ['6', '^'], ru: ['6', ':'], printable: true,
     },
     {
-      code: 'Digit7', eng: '7', ru: '7', printable: true,
+      code: 'Digit7', eng: ['7', '&'], ru: ['7', '?'], printable: true,
     },
     {
-      code: 'Digit8', eng: '8', ru: '8', printable: true,
+      code: 'Digit8', eng: ['8', '*'], ru: ['8', '*'], printable: true,
     },
     {
-      code: 'Digit9', eng: '9', ru: '9', printable: true,
+      code: 'Digit9', eng: ['9', '('], ru: ['9', '('], printable: true,
     },
     {
-      code: 'Digit0', eng: '0', ru: '0', printable: true,
+      code: 'Digit0', eng: ['0', ')'], ru: ['0', ')'], printable: true,
     },
     {
-      code: 'Minus', eng: '-', ru: '-', printable: true,
+      code: 'Minus', eng: ['-', '_'], ru: ['-', '_'], printable: true,
     },
     {
-      code: 'Equal', eng: '=', ru: '=', printable: true,
+      code: 'Equal', eng: ['=', '+'], ru: ['=', '+'], printable: true,
     },
     {
-      code: 'Backspace', eng: 'Backspace ⟵', ru: 'Backspace ⟵', printable: false,
-    },
-  ],
-
-  [
-    {
-      code: 'Tab', eng: 'Tab ↹', ru: 'Tab ↹', printable: false,
-    },
-    {
-      code: 'KeyQ', eng: 'q', ru: 'й', printable: true,
-    },
-    {
-      code: 'KeyW', eng: 'w', ru: 'ц', printable: true,
-    },
-    {
-      code: 'KeyE', eng: 'e', ru: 'у', printable: true,
-    },
-    {
-      code: 'KeyR', eng: 'r', ru: 'к', printable: true,
-    },
-    {
-      code: 'KeyT', eng: 't', ru: 'е', printable: true,
-    },
-    {
-      code: 'KeyY', eng: 'y', ru: 'н', printable: true,
-    },
-    {
-      code: 'KeyU', eng: 'u', ru: 'г', printable: true,
-    },
-    {
-      code: 'KeyI', eng: 'i', ru: 'ш', printable: true,
-    },
-    {
-      code: 'KeyO', eng: 'o', ru: 'щ', printable: true,
-    },
-    {
-      code: 'KeyP', eng: 'p', ru: 'з', printable: true,
-    },
-    {
-      code: 'BracketLeft', eng: '[', ru: 'х', printable: true,
-    },
-    {
-      code: 'BracketRight', eng: ']', ru: 'ъ', printable: true,
-    },
-    {
-      code: 'Backslash', eng: '\\', ru: '\\', printable: true,
+      code: 'Backspace', eng: ['Backspace ⟵', 'Backspace ⟵'], ru: ['Backspace ⟵', 'Backspace ⟵'], printable: false,
     },
   ],
 
   [
     {
-      code: 'CapsLock', eng: 'Caps Lock', ru: 'Caps Lock', printable: false,
+      code: 'Tab', eng: ['Tab ↹', 'Tab ↹'], ru: ['Tab ↹', 'Tab ↹'], printable: false,
     },
     {
-      code: 'KeyA', eng: 'a', ru: 'ф', printable: true,
+      code: 'KeyQ', eng: ['q', 'Q'], ru: ['й', 'Й'], printable: true,
     },
     {
-      code: 'KeyS', eng: 's', ru: 'ы', printable: true,
+      code: 'KeyW', eng: ['w', 'W'], ru: ['ц', 'Ц'], printable: true,
     },
     {
-      code: 'KeyD', eng: 'd', ru: 'в', printable: true,
+      code: 'KeyE', eng: ['e', 'E'], ru: ['у', 'У'], printable: true,
     },
     {
-      code: 'KeyF', eng: 'f', ru: 'а', printable: true,
+      code: 'KeyR', eng: ['r', 'R'], ru: ['к', 'К'], printable: true,
     },
     {
-      code: 'KeyG', eng: 'g', ru: 'п', printable: true,
+      code: 'KeyT', eng: ['t', 'T'], ru: ['е', 'Е'], printable: true,
     },
     {
-      code: 'KeyH', eng: 'h', ru: 'р', printable: true,
+      code: 'KeyY', eng: ['y', 'Y'], ru: ['н', 'Н'], printable: true,
     },
     {
-      code: 'KeyJ', eng: 'j', ru: 'о', printable: true,
+      code: 'KeyU', eng: ['u', 'U'], ru: ['г', 'Г'], printable: true,
     },
     {
-      code: 'KeyK', eng: 'k', ru: 'л', printable: true,
+      code: 'KeyI', eng: ['i', 'I'], ru: ['ш', 'Ш'], printable: true,
     },
     {
-      code: 'KeyL', eng: 'l', ru: 'д', printable: true,
+      code: 'KeyO', eng: ['o', 'O'], ru: ['щ', 'Щ'], printable: true,
     },
     {
-      code: 'Semicolon', eng: ';', ru: 'ж', printable: true,
+      code: 'KeyP', eng: ['p', 'P'], ru: ['з', 'З'], printable: true,
     },
     {
-      code: 'Quote', eng: '"', ru: 'э', printable: true,
+      code: 'BracketLeft', eng: ['[', '{'], ru: ['х', 'Х'], printable: true,
     },
     {
-      code: 'Enter', eng: 'Enter ↵', ru: 'Enter ↵', printable: false,
-    },
-  ],
-
-  [
-    {
-      code: 'ShiftLeft', eng: 'Shift ⇧', ru: 'Shift ⇧', printable: false,
+      code: 'BracketRight', eng: [']', '}'], ru: ['ъ', 'Ъ'], printable: true,
     },
     {
-      code: 'KeyZ', eng: 'z', ru: 'я', printable: true,
-    },
-    {
-      code: 'KeyX', eng: 'x', ru: 'ч', printable: true,
-    },
-    {
-      code: 'KeyC', eng: 'c', ru: 'с', printable: true,
-    },
-    {
-      code: 'KeyV', eng: 'v', ru: 'м', printable: true,
-    },
-    {
-      code: 'KeyB', eng: 'b', ru: 'и', printable: true,
-    },
-    {
-      code: 'KeyN', eng: 'n', ru: 'т', printable: true,
-    },
-    {
-      code: 'KeyM', eng: 'm', ru: 'ь', printable: true,
-    },
-    {
-      code: 'Comma', eng: ',', ru: 'б', printable: true,
-    },
-    {
-      code: 'Period', eng: '.', ru: 'ю', printable: true,
-    },
-    {
-      code: 'Slash', eng: '/', ru: '.', printable: true,
-    },
-    {
-      code: 'ArrowUp', eng: '↑', ru: '↑', printable: true,
-    },
-    {
-      code: 'ShiftRight', eng: 'Shift ⇧', ru: 'Shift ⇧', printable: false,
+      code: 'Backslash', eng: ['\\', '|'], ru: ['\\', '/'], printable: true,
     },
   ],
 
   [
     {
-      code: 'ControlLeft', eng: 'Ctrl', ru: 'Ctrl', printable: false,
+      code: 'CapsLock', eng: ['Caps Lock', 'Caps Lock'], ru: ['Caps Lock', 'Caps Lock'], printable: false,
     },
     {
-      code: 'MetaLeft', eng: 'Win', ru: 'Win', printable: false,
+      code: 'KeyA', eng: ['a', 'A'], ru: ['ф', 'Ф'], printable: true,
     },
     {
-      code: 'AltLeft', eng: 'Alt', ru: 'Alt', printable: false,
+      code: 'KeyS', eng: ['s', 'S'], ru: ['ы', 'Ы'], printable: true,
     },
     {
-      code: 'Space', eng: ' ', ru: ' ', printable: false,
+      code: 'KeyD', eng: ['d', 'D'], ru: ['в', 'В'], printable: true,
     },
     {
-      code: 'AltRight', eng: 'Alt', ru: 'Alt', printable: false,
+      code: 'KeyF', eng: ['f', 'F'], ru: ['а', 'А'], printable: true,
     },
     {
-      code: 'ControlRight', eng: 'Ctrl', ru: 'Ctrl', printable: false,
+      code: 'KeyG', eng: ['g', 'G'], ru: ['п', 'П'], printable: true,
     },
     {
-      code: 'ArrowLeft', eng: '←', ru: '←', printable: true,
+      code: 'KeyH', eng: ['h', 'H'], ru: ['р', 'Р'], printable: true,
     },
     {
-      code: 'ArrowDown', eng: '↓', ru: '↓', printable: true,
+      code: 'KeyJ', eng: ['j', 'J'], ru: ['о', 'О'], printable: true,
     },
     {
-      code: 'ArrowRight', eng: '→', ru: '→', printable: true,
+      code: 'KeyK', eng: ['k', 'K'], ru: ['л', 'Л'], printable: true,
+    },
+    {
+      code: 'KeyL', eng: ['l', 'L'], ru: ['д', 'Д'], printable: true,
+    },
+    {
+      code: 'Semicolon', eng: [';', ':'], ru: ['ж', 'Ж'], printable: true,
+    },
+    {
+      code: 'Quote', eng: ['\'', '"'], ru: ['э', 'Э'], printable: true,
+    },
+    {
+      code: 'Enter', eng: ['Enter ↵', 'Enter ↵'], ru: ['Enter ↵', 'Enter ↵'], printable: false,
+    },
+  ],
+
+  [
+    {
+      code: 'ShiftLeft', eng: ['Shift ⇧', 'Shift ⇧'], ru: ['Shift ⇧', 'Shift ⇧'], printable: false,
+    },
+    {
+      code: 'KeyZ', eng: ['z', 'Z'], ru: ['я', 'Я'], printable: true,
+    },
+    {
+      code: 'KeyX', eng: ['x', 'X'], ru: ['ч', 'Ч'], printable: true,
+    },
+    {
+      code: 'KeyC', eng: ['c', 'C'], ru: ['с', 'С'], printable: true,
+    },
+    {
+      code: 'KeyV', eng: ['v', 'V'], ru: ['м', 'М'], printable: true,
+    },
+    {
+      code: 'KeyB', eng: ['b', 'B'], ru: ['и', 'И'], printable: true,
+    },
+    {
+      code: 'KeyN', eng: ['n', 'N'], ru: ['т', 'Т'], printable: true,
+    },
+    {
+      code: 'KeyM', eng: ['m', 'M'], ru: ['ь', 'Ь'], printable: true,
+    },
+    {
+      code: 'Comma', eng: [',', '<'], ru: ['б', 'Б'], printable: true,
+    },
+    {
+      code: 'Period', eng: ['.', '>'], ru: ['ю', 'Ю'], printable: true,
+    },
+    {
+      code: 'Slash', eng: ['/', '?'], ru: ['.', ','], printable: true,
+    },
+    {
+      code: 'ArrowUp', eng: ['↑', '↑'], ru: ['↑', '↑'], printable: true,
+    },
+    {
+      code: 'ShiftRight', eng: ['Shift ⇧', 'Shift ⇧'], ru: ['Shift ⇧', 'Shift ⇧'], printable: false,
+    },
+  ],
+
+  [
+    {
+      code: 'ControlLeft', eng: ['Ctrl', 'Ctrl'], ru: ['Ctrl', 'Ctrl'], printable: false,
+    },
+    {
+      code: 'MetaLeft', eng: ['Win', 'Win'], ru: ['Win', 'Win'], printable: false,
+    },
+    {
+      code: 'AltLeft', eng: ['Alt', 'Alt'], ru: ['Alt', 'Alt'], printable: false,
+    },
+    {
+      code: 'Space', eng: [' ', ' '], ru: [' ', ' '], printable: false,
+    },
+    {
+      code: 'AltRight', eng: ['Alt', 'Alt'], ru: ['Alt', 'Alt'], printable: false,
+    },
+    {
+      code: 'ControlRight', eng: ['Ctrl', 'Ctrl'], ru: ['Ctrl', 'Ctrl'], printable: false,
+    },
+    {
+      code: 'ArrowLeft', eng: ['←', '←'], ru: ['←', '←'], printable: true,
+    },
+    {
+      code: 'ArrowDown', eng: ['↓', '↓'], ru: ['↓', '↓'], printable: true,
+    },
+    {
+      code: 'ArrowRight', eng: ['→', '→'], ru: ['→', '→'], printable: true,
     },
   ],
 ];
@@ -223,8 +223,6 @@ const createBaseMarkup = () => {
   document.querySelector('body').innerHTML = baseMarkup;
 };
 
-const lang = 'ru';
-
 const createKeyboard = () => {
   for (let i = 0; i < keys.length; i += 1) {
     const div = document.createElement('div');
@@ -232,24 +230,49 @@ const createKeyboard = () => {
     div.classList.add(`row${i + 1}`);
     document.querySelector('.keyboard__keys').append(div);
     keys[i].forEach((el) => {
-      const button = document.createElement('button');
-      const currentButton = el;
-      button.classList.add('key');
-      button.classList.add(currentButton.code.toLowerCase());
-      button.dataset.printable = `${currentButton.printable}`;
-      button.innerText = currentButton[lang].toUpperCase();
-      document.querySelector(`.row${i + 1}`).append(button);
+      let buttonTemplate = '';
+      buttonTemplate = `
+        <button class="key ${el.code.toLocaleLowerCase()}" data-printable=${el.printable}>
+          <span class="engLow visible">${el.eng[0]}</span>
+          <span class="engUp">${el.eng[1]}</span>
+          <span class="ruLow">${el.ru[0]}</span>
+          <span class="ruUp">${el.ru[1]}</span>
+        </button>`;
+      document.querySelector(`.row${i + 1}`).insertAdjacentHTML('beforeend', buttonTemplate);
     });
   }
 };
 
-let isCapsLock = false;
-
 const printKeySymbol = (element) => {
-  if (isCapsLock === false) {
-    document.querySelector('.output__field').value += element.innerText.toLowerCase();
+  document.querySelector('.output__field').value += element.querySelector('.visible').innerText;
+};
+
+let isCapsLock = false;
+let currentLang = 'eng';
+
+const capsLockToggler = () => {
+  document.querySelectorAll('span').forEach((el) => el.classList.remove('visible'));
+  if (isCapsLock === true && currentLang === 'eng') {
+    document.querySelectorAll('.engUp').forEach((el) => el.classList.add('visible'));
+  } else if (isCapsLock === false && currentLang === 'eng') {
+    document.querySelectorAll('.engLow').forEach((el) => el.classList.add('visible'));
+  } else if (isCapsLock === true && currentLang === 'ru') {
+    document.querySelectorAll('.ruUp').forEach((el) => el.classList.add('visible'));
   } else {
-    document.querySelector('.output__field').value += element.innerText.toUpperCase();
+    document.querySelectorAll('.ruLow').forEach((el) => el.classList.add('visible'));
+  }
+};
+
+const changeLanguage = () => {
+  document.querySelectorAll('span').forEach((el) => el.classList.remove('visible'));
+  if (isCapsLock === true && currentLang === 'eng') {
+    document.querySelectorAll('.engUp').forEach((el) => el.classList.add('visible'));
+  } else if (isCapsLock === false && currentLang === 'eng') {
+    document.querySelectorAll('.engLow').forEach((el) => el.classList.add('visible'));
+  } else if (isCapsLock === true && currentLang === 'ru') {
+    document.querySelectorAll('.ruUp').forEach((el) => el.classList.add('visible'));
+  } else {
+    document.querySelectorAll('.ruLow').forEach((el) => el.classList.add('visible'));
   }
 };
 
@@ -275,16 +298,22 @@ const doKeyAction = (element) => {
       isCapsLock = false;
       element.classList.remove('capslock__active');
     }
+    capsLockToggler(isCapsLock);
+  }
+  if (element.classList.contains('controlleft')) {
+    currentLang = currentLang === 'eng' ? 'ru' : 'eng';
+    changeLanguage(currentLang);
   }
 };
 
 const addKeyboardKeysClickHandler = () => {
   document.querySelector('.keyboard__keys').addEventListener('click', (event) => {
-    if (event.target.classList.contains('key')) {
-      if (event.target.dataset.printable === 'true') {
-        printKeySymbol(event.target);
+    if (event.target.classList.contains('row') || event.target.classList.contains('keyboard__keys')) return;
+    if (event.target.closest('button').classList.contains('key')) {
+      if (event.target.closest('button').dataset.printable === 'true') {
+        printKeySymbol(event.target.closest('button'));
       } else {
-        doKeyAction(event.target);
+        doKeyAction(event.target.closest('button'));
       }
     }
   });
@@ -292,6 +321,7 @@ const addKeyboardKeysClickHandler = () => {
 
 const addOnKeyPressHandler = () => {
   document.querySelector('body').addEventListener('keydown', (event) => {
+    event.preventDefault();
     const keyPressed = event.code.toLowerCase();
     if (
       event.keyCode === 8
@@ -300,9 +330,9 @@ const addOnKeyPressHandler = () => {
       || event.keyCode === 9
       || event.keyCode === 20
       || event.keyCode === 16
-      || event.keyCode === 17
+      || event.keyCode === 17 // Ctrl
       || event.keyCode === 18
-      || event.keyCode === 91
+      || event.keyCode === 91 // Win
     ) {
       event.preventDefault();
       document.querySelector(`.${keyPressed}`).classList.add('key__press');
