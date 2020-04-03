@@ -204,6 +204,13 @@ const keys = [
   ],
 ];
 
+const keyCodeArr = [
+  192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 189, 187, 8, 220, 221, 219,
+  80, 79, 73, 85, 89, 84, 82, 69, 87, 81, 9, 20, 65, 83, 68, 70, 71, 72,
+  74, 75, 76, 186, 222, 13, 16, 191, 190, 188, 77, 78, 66, 86, 67, 88,
+  90, 16, 17, 91, 18, 32, 18, 17, 37, 40, 38, 39,
+];
+
 const baseMarkup = `
   <header>
     <h1 class="title">Virtual Keyboard</h1>
@@ -215,8 +222,10 @@ const baseMarkup = `
     <section class="keyboard">
       <div class="keyboard__keys"></div>
     </section>
+    <p>Клавиатура создана в операционной системе Windows</p>
+    <p>Для переключения языка комбинация: левыe ctrl + alt</p>
   </main>
-  <footer></footer>
+  <footer><a class="github-link" href="https://github.com/abukato/virtual-keyboard/tree/master">GitHub</a></footer>
 `;
 
 const createBaseMarkup = () => {
@@ -341,53 +350,57 @@ const addKeyboardKeysClickHandler = () => {
 
 const addOnKeyPressHandler = () => {
   document.querySelector('body').addEventListener('keydown', (event) => {
-    const keyEventCode = event.code.toLowerCase();
-    document.querySelector(`.${keyEventCode}`).classList.add('key__press');
-    const key = document.querySelector(`.${keyEventCode}`);
+    if (keyCodeArr.includes(event.keyCode)) {
+      const keyEventCode = event.code.toLowerCase();
+      document.querySelector(`.${keyEventCode}`).classList.add('key__press');
+      const key = document.querySelector(`.${keyEventCode}`);
 
-    if (event.ctrlKey && event.altKey) {
-      changeLanguage();
-    }
+      if (event.ctrlKey && event.altKey) {
+        changeLanguage();
+      }
 
-    if (event.keyCode === 16 && !event.repeat) {
-      if (event.code === 'ShiftLeft') {
+      if (event.keyCode === 16 && !event.repeat) {
+        if (event.code === 'ShiftLeft') {
+          event.preventDefault();
+          doKeyAction(key);
+        }
+      }
+
+      if (
+        event.keyCode === 8 // Backspace
+        || event.keyCode === 32 // Space
+        || event.keyCode === 13 // Enter
+        || event.keyCode === 9 // Tab
+        || ((event.keyCode === 20) && (!event.repeat)) // CapsLock
+        || event.keyCode === 91 // Win
+      ) {
         event.preventDefault();
         doKeyAction(key);
       }
-    }
 
-    if (
-      event.keyCode === 8 // Backspace
-      || event.keyCode === 32 // Space
-      || event.keyCode === 13 // Enter
-      || event.keyCode === 9 // Tab
-      || ((event.keyCode === 20) && (!event.repeat)) // CapsLock
-      || event.keyCode === 91 // Win
-    ) {
-      event.preventDefault();
-      doKeyAction(key);
-    }
-
-    if (
-      (event.keyCode >= 65 && event.keyCode <= 90)
-      || (event.keyCode >= 37 && event.keyCode <= 40)
-      || (event.keyCode >= 48 && event.keyCode <= 57)
-      || event.keyCode === 192
-      || (event.keyCode >= 219 && event.keyCode <= 221)
-      || event.keyCode === 186
-      || event.keyCode === 222
-      || (event.keyCode >= 187 && event.keyCode <= 191)
-    ) {
-      printKeySymbol(key);
+      if (
+        (event.keyCode >= 65 && event.keyCode <= 90)
+        || (event.keyCode >= 37 && event.keyCode <= 40)
+        || (event.keyCode >= 48 && event.keyCode <= 57)
+        || event.keyCode === 192
+        || (event.keyCode >= 219 && event.keyCode <= 221)
+        || event.keyCode === 186
+        || event.keyCode === 222
+        || (event.keyCode >= 187 && event.keyCode <= 191)
+      ) {
+        printKeySymbol(key);
+      }
     }
   });
 
   document.querySelector('body').addEventListener('keyup', (event) => {
-    event.preventDefault();
-    const keyEventCode = event.code.toLowerCase();
-    document.querySelector(`.${keyEventCode}`).classList.remove('key__press');
-    if (event.keyCode === 16 && !event.repeat) {
-      doKeyAction(document.querySelector('.shiftleft'));
+    if (keyCodeArr.includes(event.keyCode)) {
+      event.preventDefault();
+      const keyEventCode = event.code.toLowerCase();
+      document.querySelector(`.${keyEventCode}`).classList.remove('key__press');
+      if (event.keyCode === 16 && !event.repeat) {
+        doKeyAction(document.querySelector('.shiftleft'));
+      }
     }
   });
 };

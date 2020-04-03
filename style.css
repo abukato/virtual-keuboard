@@ -26,6 +26,13 @@ section {
   justify-content: center;
 }
 
+p {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
 .output__field {
   width: 940px;
   height: 280px;
@@ -41,6 +48,7 @@ section {
 
 .keyboard {
   padding: 20px;
+  user-select: none;
 }
 
 .keyboard__keys {
@@ -122,4 +130,20 @@ section {
 .key__press {
   background-color: #00818a;
   transform: translateY(3px);
+}
+
+footer {
+  text-align: center;
+  font-size: 18px;
+}
+
+.github-link {
+  color: #00818a;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+.github-link:hover {
+  color: #dbedf3;
+  text-decoration: underline;
 }
