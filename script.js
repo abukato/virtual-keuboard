@@ -231,24 +231,34 @@ const createKeyboard = () => {
     document.querySelector('.keyboard__keys').append(div);
     keys[i].forEach((el) => {
       let buttonTemplate = '';
-      buttonTemplate = `
+      if (localStorage.lang === 'ru') {
+        buttonTemplate = `
+        <button class="key ${el.code.toLocaleLowerCase()}" data-printable=${el.printable}>
+          <span class="engLow">${el.eng[0]}</span>
+          <span class="engUp">${el.eng[1]}</span>
+          <span class="ruLow visible">${el.ru[0]}</span>
+          <span class="ruUp">${el.ru[1]}</span>
+        </button>`;
+      } else {
+        buttonTemplate = `
         <button class="key ${el.code.toLocaleLowerCase()}" data-printable=${el.printable}>
           <span class="engLow visible">${el.eng[0]}</span>
           <span class="engUp">${el.eng[1]}</span>
           <span class="ruLow">${el.ru[0]}</span>
           <span class="ruUp">${el.ru[1]}</span>
         </button>`;
+      }
       document.querySelector(`.row${i + 1}`).insertAdjacentHTML('beforeend', buttonTemplate);
     });
   }
 };
 
+let isCapsLock = false;
+let currentLang = localStorage.lang || 'eng';
+
 const printKeySymbol = (element) => {
   document.querySelector('.output__field').value += element.querySelector('.visible').innerText;
 };
-
-let isCapsLock = false;
-let currentLang = 'eng';
 
 const showDesiredKeys = () => {
   const engUpperCaseKeys = document.querySelectorAll('.engUp');
@@ -290,6 +300,7 @@ const shiftToggler = () => {
 
 const changeLanguage = () => {
   currentLang = currentLang === 'eng' ? 'ru' : 'eng';
+  localStorage.lang = currentLang;
   showDesiredKeys();
 };
 
