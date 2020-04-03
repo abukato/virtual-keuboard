@@ -251,15 +251,20 @@ let isCapsLock = false;
 let currentLang = 'eng';
 
 const showDesiredKeys = () => {
+  const engUpperCaseKeys = document.querySelectorAll('.engUp');
+  const engLowerCaseKeys = document.querySelectorAll('.engLow');
+  const ruUpperCaseKeys = document.querySelectorAll('.ruUp');
+  const ruLowerCaseKeys = document.querySelectorAll('.ruLow');
+
   document.querySelectorAll('span').forEach((el) => el.classList.remove('visible'));
   if (isCapsLock === true && currentLang === 'eng') {
-    document.querySelectorAll('.engUp').forEach((el) => el.classList.add('visible'));
+    engUpperCaseKeys.forEach((el) => el.classList.add('visible'));
   } else if (isCapsLock === false && currentLang === 'eng') {
-    document.querySelectorAll('.engLow').forEach((el) => el.classList.add('visible'));
+    engLowerCaseKeys.forEach((el) => el.classList.add('visible'));
   } else if (isCapsLock === true && currentLang === 'ru') {
-    document.querySelectorAll('.ruUp').forEach((el) => el.classList.add('visible'));
+    ruUpperCaseKeys.forEach((el) => el.classList.add('visible'));
   } else {
-    document.querySelectorAll('.ruLow').forEach((el) => el.classList.add('visible'));
+    ruLowerCaseKeys.forEach((el) => el.classList.add('visible'));
   }
 };
 
@@ -274,7 +279,7 @@ const capsLockToggler = (element) => {
   showDesiredKeys();
 };
 
-const shiftToggler = (element) => {
+const shiftToggler = () => {
   if (!isCapsLock) {
     isCapsLock = true;
   } else {
@@ -305,9 +310,6 @@ const doKeyAction = (element) => {
   if (element.classList.contains('capslock')) {
     capsLockToggler(element);
   }
-  if (element.classList.contains('controlleft')) {
-    changeLanguage(currentLang);
-  }
   if (element.classList.contains('shiftleft')) {
     shiftToggler(element);
   }
@@ -328,29 +330,31 @@ const addKeyboardKeysClickHandler = () => {
 
 const addOnKeyPressHandler = () => {
   document.querySelector('body').addEventListener('keydown', (event) => {
-    event.preventDefault();
-    const keyPressed = event.code.toLowerCase();
-    if (event.keyCode === 16 && !event.repeat) {
-      event.preventDefault();
-      document.querySelector(`.${keyPressed}`).classList.add('key__press');
-      const letter = document.querySelector(`.${keyPressed}`);
-      doKeyAction(letter);
+    const keyEventCode = event.code.toLowerCase();
+    document.querySelector(`.${keyEventCode}`).classList.add('key__press');
+    const key = document.querySelector(`.${keyEventCode}`);
+
+    if (event.ctrlKey && event.altKey) {
+      changeLanguage();
     }
+
+    if (event.keyCode === 16 && !event.repeat) {
+      if (event.code === 'ShiftLeft') {
+        event.preventDefault();
+        doKeyAction(key);
+      }
+    }
+
     if (
       event.keyCode === 8 // Backspace
       || event.keyCode === 32 // Space
       || event.keyCode === 13 // Enter
       || event.keyCode === 9 // Tab
-      || event.keyCode === 20 // CapsLock
-      // || event.keyCode === 16 // Shift's
-      || event.keyCode === 17 // Ctrl
-      || event.keyCode === 18 // Alts
+      || ((event.keyCode === 20) && (!event.repeat)) // CapsLock
       || event.keyCode === 91 // Win
     ) {
       event.preventDefault();
-      document.querySelector(`.${keyPressed}`).classList.add('key__press');
-      const letter = document.querySelector(`.${keyPressed}`);
-      doKeyAction(letter);
+      doKeyAction(key);
     }
 
     if (
@@ -363,16 +367,14 @@ const addOnKeyPressHandler = () => {
       || event.keyCode === 222
       || (event.keyCode >= 187 && event.keyCode <= 191)
     ) {
-      document.querySelector(`.${keyPressed}`).classList.add('key__press');
-      const letter = document.querySelector(`.${keyPressed}`);
-      printKeySymbol(letter);
+      printKeySymbol(key);
     }
   });
 
   document.querySelector('body').addEventListener('keyup', (event) => {
     event.preventDefault();
-    const keyPressed = event.code.toLowerCase();
-    document.querySelector(`.${keyPressed}`).classList.remove('key__press');
+    const keyEventCode = event.code.toLowerCase();
+    document.querySelector(`.${keyEventCode}`).classList.remove('key__press');
     if (event.keyCode === 16 && !event.repeat) {
       doKeyAction(document.querySelector('.shiftleft'));
     }
