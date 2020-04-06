@@ -1,0 +1,18 @@
+.keyboard {
+  padding: 20px;
+  user-select: none;
+
+  &__keys {
+    width: 940px;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
