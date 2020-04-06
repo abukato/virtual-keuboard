@@ -1,0 +1,60 @@
+html,
+body {
+  background-color: $bg-color;
+  font-family: $primary-font;
+  color: $text-color;
+}
+
+.title {
+  padding: 36px 0;
+  font-size: 48px;
+  text-align: center;
+}
+
+main {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.output__field {
+  width: 940px;
+  height: 280px;
+  padding: 10px;
+  resize: none;
+  margin-bottom: 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-family: $primary-font;
+  color: $text-color;
+  background-color: $primary-color;
+}
+
+footer {
+  text-align: center;
+  font-size: 18px;
+}
+
+.github-link {
+  color: $primary-color;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}

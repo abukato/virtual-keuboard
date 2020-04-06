@@ -1,0 +1,67 @@
+.key {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: $primary-font;
+  color: $text-color;
+  background-color: $secondary-color;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: all 0.2s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active,
+  &__press {
+    background-color: $primary-color;
+    transform: translateY(3px);
+  }
+}
+
+.engLow,
+.engUp,
+.ruLow,
+.ruUp {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.backspace {
+  width: 94px;
+}
+
+.tab,
+.controlleft,
+.controlright {
+  width: 84px;
+}
+
+.enter {
+  width: 104px;
+}
+
+.capslock {
+  width: 104px;
+
+  &__active {
+    font-weight: 900;
+  }
+}
+
+.shiftleft {
+  width: 148px;
+}
+
+.space {
+  width: 340px;
+}
